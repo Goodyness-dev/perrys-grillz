@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/home/Hero';
 import MainShowcaseSection from './components/home/MainShowcaseSection';
 import BentoFeatureCards from './components/home/BentoFeatureCards';
+import GallerySection from './components/home/GallerySection';
 import LocationHoursSection from './components/home/LocationHoursSection';
 import Footer from './components/layout/Footer';
 import AllServicesPage from './components/services/AllServicesPage';
@@ -93,7 +94,7 @@ export default function App() {
     setWizardCategory(null);
   };
 
-  // If on Admin route, render full-screen Admin portal
+  // If on Admin route, render Admin portal
   if (currentPage === 'admin') {
     return isAdminAuthenticated ? (
       <AdminLayout
@@ -116,7 +117,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#EFECE6] text-[#1A1816] flex flex-col font-sans transition-colors duration-200 selection:bg-gold-500 selection:text-white">
+    <div className="min-h-screen bg-[#f0fdfa] text-[#0f2922] flex flex-col font-sans transition-colors duration-200 selection:bg-teal-500 selection:text-white">
       {/* Global Navbar */}
       <Navbar 
         onOpenWizard={() => handleOpenWizard()} 
@@ -133,34 +134,37 @@ export default function App() {
           />
         ) : (
           <>
-            {/* Top Showcase Banner with Centered Title & Flanking Carousel Arrows */}
+            {/* Top Showcase Banner */}
             <Hero onOpenWizard={handleOpenWizard} />
 
-            {/* Middle Main Showcase: Our Menu (3D Floating Pedestals) + Executive Chef & Reviews */}
+            {/* Middle Main Showcase: Our Menu (Big Food Cards) + Executive Chef & Reviews */}
             <MainShowcaseSection 
               onOpenWizard={handleOpenWizard} 
               onViewAllServices={() => handleNavigate('services')}
             />
 
-            {/* Bottom Bento Feature Cards: Prime Cuts Dry Aging + Verandah Gallery */}
+            {/* Bottom Bento Feature Cards */}
             <BentoFeatureCards 
               onOpenWizard={handleOpenWizard} 
               onViewAllServices={() => handleNavigate('services')}
             />
 
-            {/* Estate Location & Interactive Google Map Visitor Guide */}
+            {/* Visual Archive Gallery: 15 Premium User Photos with Filtering & Lightbox */}
+            <GallerySection onOpenWizard={handleOpenWizard} />
+
+            {/* Hilltop Location & Interactive Google Map */}
             <LocationHoursSection onOpenWizard={handleOpenWizard} />
           </>
         )}
       </main>
 
-      {/* Global Footer with Stylized Map Card */}
+      {/* Global Footer */}
       <Footer 
         onOpenWizard={() => handleOpenWizard()} 
         onNavigate={handleNavigate}
       />
 
-      {/* Table Reservation & Private Dining Request Modal */}
+      {/* Table Reservation & Shuttle Modal */}
       <QuoteWizardModal
         isOpen={wizardOpen}
         onClose={handleCloseWizard}
@@ -168,16 +172,16 @@ export default function App() {
       />
 
       {/* Sticky Mobile Bottom Reservation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 sm:hidden bg-[#EFECE6]/95 backdrop-blur-md border-t border-[#D5CABB] p-3 flex items-center gap-3 shadow-2xl">
+      <div className="fixed bottom-0 left-0 right-0 z-30 sm:hidden bg-white/95 backdrop-blur-md border-t border-teal-200 p-3 flex items-center gap-3 shadow-2xl">
         <a
           href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`}
-          className="flex-1 py-3 px-3.5 rounded-full bg-white text-charcoal-900 border border-[#D5CABB] font-semibold text-xs flex items-center justify-center space-x-1.5 active:scale-95 shadow-sm"
+          className="flex-1 py-3 px-3.5 rounded-full bg-teal-50 text-teal-900 border border-teal-200 font-bold text-xs flex items-center justify-center space-x-1.5 active:scale-95 shadow-xs"
         >
           <span>Call: {BUSINESS_INFO.phone}</span>
         </a>
         <button
           onClick={() => handleOpenWizard()}
-          className="flex-1 py-3 px-3.5 rounded-full bg-charcoal-900 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center space-x-1 shadow-md active:scale-95"
+          className="flex-1 py-3 px-3.5 rounded-full bg-teal-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-1 shadow-md active:scale-95"
         >
           <span>Book Table</span>
         </button>

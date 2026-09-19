@@ -115,24 +115,24 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-sm overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-teal-950/75 backdrop-blur-sm overflow-y-auto">
       <div 
-        className="relative w-full max-w-xl bg-[#1c1917] border border-stone-800 rounded-3xl shadow-2xl overflow-hidden my-auto"
+        className="relative w-full max-w-xl bg-white border-2 border-teal-200 rounded-3xl shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
         role="dialog"
         aria-modal="true"
       >
         
         {/* Modal Header */}
-        <div className="bg-[#151413] px-6 py-5 border-b border-stone-800 flex items-center justify-between">
+        <div className="bg-teal-50 px-6 py-5 border-b border-teal-100 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-full border border-amber-500/70 flex items-center justify-center font-serif text-amber-400 font-bold text-xs">
+            <div className="w-8 h-8 rounded-full border-2 border-teal-600 bg-white flex items-center justify-center font-serif text-teal-800 font-bold text-xs">
               PG
             </div>
-            <div>
-              <h3 className="font-serif text-base sm:text-lg font-bold text-white leading-tight">
+            <div className="text-left">
+              <h3 className="font-serif text-base sm:text-lg font-bold text-ocean-dark leading-tight">
                 Perry's Grillz Table Reservation
               </h3>
-              <p className="text-[10px] uppercase tracking-wider text-amber-400">
+              <p className="text-[10px] uppercase tracking-wider text-teal-700 font-mono font-semibold">
                 Les Canelles • Mahé, Seychelles
               </p>
             </div>
@@ -140,7 +140,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-stone-900 border border-stone-750 hover:bg-stone-800 text-stone-300 flex items-center justify-center transition"
+            className="w-8 h-8 rounded-full bg-white border border-teal-200 hover:bg-teal-100 text-teal-900 flex items-center justify-center transition cursor-pointer"
             aria-label="Close modal"
           >
             ✕
@@ -148,17 +148,17 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
         </div>
 
         {/* Progress Bar */}
-        <div className="h-1 w-full bg-stone-900">
+        <div className="h-1.5 w-full bg-teal-100">
           <div 
-            className="h-full bg-amber-500 transition-all duration-300"
+            className="h-full bg-teal-600 transition-all duration-300"
             style={{ width: `${(currentStep / 4) * 100}%` }}
           />
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-7 max-h-[75vh] overflow-y-auto">
+        <div className="p-6 sm:p-7 max-h-[75vh] overflow-y-auto bg-white">
           {errorMsg && (
-            <div className="mb-4 p-3 rounded-xl bg-red-950/80 border border-red-800 text-red-200 text-xs">
+            <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs text-left">
               {errorMsg}
             </div>
           )}
@@ -167,10 +167,10 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
           {currentStep === 1 && (
             <div className="space-y-4 text-left">
               <div>
-                <h4 className="font-serif text-xl sm:text-2xl font-bold text-stone-100">
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-ocean-dark">
                   Select Seating Area
                 </h4>
-                <p className="text-xs sm:text-sm text-stone-400 font-light">
+                <p className="text-xs sm:text-sm text-teal-900/80 font-light">
                   Choose your preferred setting atop Les Canelles mountain.
                 </p>
               </div>
@@ -182,21 +182,21 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                     <div
                       key={opt.title}
                       onClick={() => setFormData(prev => ({ ...prev, seatingArea: opt.title }))}
-                      className={`p-4 rounded-2xl border cursor-pointer transition-all duration-200 text-left ${
+                      className={`p-4 rounded-2xl border-2 cursor-pointer transition-all duration-200 text-left ${
                         isSelected
-                          ? 'border-amber-500 bg-amber-950/30 shadow-md -translate-y-0.5'
-                          : 'border-stone-800 bg-stone-900/60 hover:border-amber-500/40 hover:bg-stone-900'
+                          ? 'border-teal-600 bg-teal-50/80 shadow-md -translate-y-0.5 ring-1 ring-teal-500/30'
+                          : 'border-teal-100 bg-white hover:border-teal-300 hover:bg-teal-50/40'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-serif font-bold text-sm sm:text-base text-stone-100">
+                        <span className="font-serif font-bold text-sm sm:text-base text-ocean-dark">
                           {opt.title}
                         </span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-800 text-amber-300 font-medium">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-mono font-bold">
                           {opt.badge}
                         </span>
                       </div>
-                      <p className="text-xs text-stone-400 font-light leading-relaxed">
+                      <p className="text-xs text-teal-900/75 font-light leading-relaxed">
                         {opt.desc}
                       </p>
                     </div>
@@ -210,17 +210,17 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
           {currentStep === 2 && (
             <div className="space-y-5 text-left">
               <div>
-                <h4 className="font-serif text-xl sm:text-2xl font-bold text-stone-100">
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-ocean-dark">
                   Party Size & Reservation Time
                 </h4>
-                <p className="text-xs sm:text-sm text-stone-400 font-light">
+                <p className="text-xs sm:text-sm text-teal-900/80 font-light">
                   When will you be joining Perry & family?
                 </p>
               </div>
 
               {/* Party Size */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-2">
+                <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-2">
                   Party Size
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -229,10 +229,10 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                       key={size}
                       type="button"
                       onClick={() => setFormData(prev => ({ ...prev, partySize: size }))}
-                      className={`py-2 px-3 rounded-xl border text-xs font-semibold text-center transition ${
+                      className={`py-2 px-3 rounded-xl border-2 text-xs font-bold text-center transition ${
                         formData.partySize === size
-                          ? 'bg-amber-500 text-stone-950 border-amber-400 shadow-sm font-bold'
-                          : 'bg-stone-900 border-stone-800 text-stone-300 hover:bg-stone-800'
+                          ? 'bg-teal-700 text-white border-teal-700 shadow-sm'
+                          : 'bg-white border-teal-100 text-teal-900 hover:bg-teal-50'
                       }`}
                     >
                       {size}
@@ -244,7 +244,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
               {/* Date & Time Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1.5">
                     Dining Date
                   </label>
                   <input
@@ -252,18 +252,18 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                     value={formData.date}
                     min={new Date().toISOString().split('T')[0]}
                     onChange={(e) => setFormData(prev => ({ ...prev, date: e.target.value }))}
-                    className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm font-medium text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2.5 text-sm font-medium text-ocean-dark focus:outline-none focus:ring-2 focus:ring-teal-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1.5">
                     Preferred Time
                   </label>
                   <select
                     value={formData.timeSlot}
                     onChange={(e) => setFormData(prev => ({ ...prev, timeSlot: e.target.value }))}
-                    className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm font-medium text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2.5 text-sm font-medium text-ocean-dark focus:outline-none focus:ring-2 focus:ring-teal-500"
                   >
                     {timeSlots.map((time) => (
                       <option key={time} value={time}>{time}</option>
@@ -274,13 +274,13 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
 
               {/* Occasion */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1.5">
+                <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1.5">
                   Dining Occasion
                 </label>
                 <select
                   value={formData.occasion}
                   onChange={(e) => setFormData(prev => ({ ...prev, occasion: e.target.value }))}
-                  className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm font-medium text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2.5 text-sm font-medium text-ocean-dark focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
                   {occasions.map((occ) => (
                     <option key={occ} value={occ}>{occ}</option>
@@ -289,15 +289,15 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
               </div>
 
               {/* Hotel Pick-up Shuttle Toggle */}
-              <label className="flex items-center space-x-3 cursor-pointer pt-1 bg-stone-900/60 p-3 rounded-xl border border-stone-800">
+              <label className="flex items-center space-x-3 cursor-pointer pt-1 bg-teal-50/70 p-3.5 rounded-xl border border-teal-200">
                 <input
                   type="checkbox"
                   checked={formData.hotelPickup}
                   onChange={(e) => setFormData(prev => ({ ...prev, hotelPickup: e.target.checked }))}
-                  className="w-4 h-4 rounded text-amber-500 focus:ring-amber-500 border-stone-700 bg-stone-800"
+                  className="w-4 h-4 rounded text-teal-600 focus:ring-teal-500 border-teal-300"
                 />
-                <span className="text-xs sm:text-sm text-stone-200">
-                  Request complimentary guest hotel pick-up shuttle (from Mahé hotels & resorts)
+                <span className="text-xs sm:text-sm text-teal-950 font-medium">
+                  Request complimentary guest hotel pick-up shuttle (from Mahé resorts & guesthouses)
                 </span>
               </label>
             </div>
@@ -307,17 +307,17 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
           {currentStep === 3 && (
             <form onSubmit={handleSubmit} className="space-y-4 text-left">
               <div>
-                <h4 className="font-serif text-xl sm:text-2xl font-bold text-stone-100">
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-ocean-dark">
                   Guest Contact & Reservation Notes
                 </h4>
-                <p className="text-xs sm:text-sm text-stone-400 font-light">
+                <p className="text-xs sm:text-sm text-teal-900/80 font-light">
                   We will send your table confirmation and mountain directions directly.
                 </p>
               </div>
 
               <div className="space-y-3">
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1">
+                  <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1">
                     Primary Guest Name *
                   </label>
                   <input
@@ -326,13 +326,13 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                     placeholder="e.g. Hanna Bakirova / Maxence Beaumont"
                     value={formData.name}
                     onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm text-stone-100 focus:ring-2 focus:ring-amber-500 outline-none"
+                    className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2.5 text-sm text-ocean-dark focus:ring-2 focus:ring-teal-500 outline-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1">
+                    <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1">
                       Email Address *
                     </label>
                     <input
@@ -341,12 +341,12 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                       placeholder="guest@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                      className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm text-stone-100 focus:ring-2 focus:ring-amber-500 outline-none"
+                      className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2.5 text-sm text-ocean-dark focus:ring-2 focus:ring-teal-500 outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1">
+                    <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1">
                       Phone / WhatsApp Number *
                     </label>
                     <input
@@ -355,13 +355,13 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                       placeholder="+248 2 527 260"
                       value={formData.phone}
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                      className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm text-stone-100 focus:ring-2 focus:ring-amber-500 outline-none"
+                      className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2.5 text-sm text-ocean-dark focus:ring-2 focus:ring-teal-500 outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1">
+                  <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1">
                     Hotel Name (for Shuttle) or Dietary Requests
                   </label>
                   <textarea
@@ -369,22 +369,22 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                     placeholder="E.g. Staying at Anse Royale Resort, please pick us up at 6:30 PM. Vegetarian options requested..."
                     value={formData.culinaryNotes}
                     onChange={(e) => setFormData(prev => ({ ...prev, culinaryNotes: e.target.value }))}
-                    className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2 text-sm text-stone-100 focus:ring-2 focus:ring-amber-500 outline-none"
+                    className="w-full rounded-xl border-2 border-teal-100 bg-white px-3.5 py-2 text-sm text-ocean-dark focus:ring-2 focus:ring-teal-500 outline-none"
                   />
                 </div>
               </div>
 
               {/* Reservation Overview Card */}
-              <div className="p-3.5 rounded-2xl bg-stone-900 border border-stone-800 text-xs space-y-1">
-                <div className="flex justify-between font-semibold text-stone-100">
+              <div className="p-3.5 rounded-2xl bg-teal-50 border border-teal-200 text-xs space-y-1">
+                <div className="flex justify-between font-bold text-ocean-dark">
                   <span>Setting:</span>
-                  <span className="text-amber-400">{formData.seatingArea}</span>
+                  <span className="text-teal-700">{formData.seatingArea}</span>
                 </div>
-                <div className="flex justify-between text-stone-400">
+                <div className="flex justify-between text-teal-900">
                   <span>Date & Time:</span>
                   <span>{formData.date} at {formData.timeSlot}</span>
                 </div>
-                <div className="flex justify-between text-stone-400">
+                <div className="flex justify-between text-teal-900">
                   <span>Party:</span>
                   <span>{formData.partySize}</span>
                 </div>
@@ -395,19 +395,19 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
           {/* STEP 4: Success Confirmation */}
           {currentStep === 4 && (
             <div className="py-6 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 text-amber-400 mx-auto flex items-center justify-center text-2xl shadow-sm">
+              <div className="w-16 h-16 rounded-full bg-teal-100 border-2 border-teal-500 text-teal-700 mx-auto flex items-center justify-center text-2xl shadow-sm">
                 🏝️
               </div>
 
-              <h4 className="font-serif text-2xl sm:text-3xl font-bold text-stone-100">
+              <h4 className="font-serif text-2xl sm:text-3xl font-bold text-ocean-dark">
                 Table Reservation Received!
               </h4>
 
-              <p className="text-sm text-stone-300 max-w-md mx-auto leading-relaxed">
+              <p className="text-sm text-teal-950/80 max-w-md mx-auto leading-relaxed">
                 Thank you, <strong>{formData.name}</strong>. Your reservation request for <strong>{formData.partySize}</strong> on <strong>{formData.date} at {formData.timeSlot}</strong> has been received by Perry and his team.
               </p>
 
-              <div className="p-4 rounded-2xl bg-stone-900 border border-stone-800 max-w-sm mx-auto text-xs text-stone-300 space-y-1 text-left">
+              <div className="p-4 rounded-2xl bg-teal-50 border border-teal-200 max-w-sm mx-auto text-xs text-teal-950 space-y-1 text-left">
                 <p><strong>Reservation Ref:</strong> {submissionResult?.quoteId || 'RES-PERRYS'}</p>
                 <p><strong>Area:</strong> {formData.seatingArea}</p>
                 <p><strong>Direct Call:</strong> +248 2 527 260</p>
@@ -417,7 +417,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
               <div className="pt-3">
                 <button
                   onClick={onClose}
-                  className="rounded-full bg-amber-500 text-stone-950 font-bold px-8 py-2.5 text-xs uppercase tracking-widest hover:bg-amber-400 transition shadow"
+                  className="rounded-full bg-teal-600 text-white font-bold px-8 py-2.5 text-xs uppercase tracking-widest hover:bg-teal-700 transition shadow"
                 >
                   Done
                 </button>
@@ -429,12 +429,12 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
 
         {/* Modal Footer Controls */}
         {currentStep < 4 && (
-          <div className="bg-[#151413] px-6 py-4 flex items-center justify-between border-t border-stone-800">
+          <div className="bg-teal-50 px-6 py-4 flex items-center justify-between border-t border-teal-100">
             {currentStep > 1 ? (
               <button
                 type="button"
                 onClick={handlePrev}
-                className="px-5 py-2 rounded-full border border-stone-700 text-xs font-semibold text-stone-300 hover:bg-stone-900 transition active:scale-95"
+                className="px-5 py-2 rounded-full border border-teal-300 text-xs font-bold text-teal-900 hover:bg-white transition active:scale-95"
               >
                 ← Back
               </button>
@@ -444,7 +444,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
               <button
                 type="button"
                 onClick={handleNext}
-                className="rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-7 py-2.5 text-xs uppercase tracking-wider transition active:scale-95 shadow-md"
+                className="rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-2.5 text-xs uppercase tracking-wider transition active:scale-95 shadow-sm"
               >
                 Continue →
               </button>
@@ -453,7 +453,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialCategory = nu
                 type="button"
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-8 py-2.5 text-xs uppercase tracking-wider transition active:scale-95 shadow-md disabled:opacity-50"
+                className="rounded-full bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-2.5 text-xs uppercase tracking-wider transition active:scale-95 shadow-sm disabled:opacity-50"
               >
                 {isSubmitting ? 'Confirming...' : 'Confirm Table Reservation'}
               </button>

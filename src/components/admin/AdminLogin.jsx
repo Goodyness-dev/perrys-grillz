@@ -47,65 +47,65 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f0e0c] text-stone-100 flex flex-col justify-center items-center px-4 py-8 sm:py-12 relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-[#f0fdfa] text-ocean-dark flex flex-col justify-center items-center px-4 py-8 sm:py-12 relative overflow-hidden font-sans">
       {/* Subtle Warm Backdrop Lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-teal-300/30 rounded-full blur-3xl pointer-events-none" />
 
       {/* Return to Site Link */}
       <div className="w-full max-w-md mb-5 z-10 text-left">
         <button
           onClick={onBackToSite}
           type="button"
-          className="inline-flex items-center text-xs sm:text-sm font-semibold text-stone-400 hover:text-amber-400 transition px-3 py-1.5 rounded-xl hover:bg-stone-900 border border-transparent hover:border-stone-800 cursor-pointer"
+          className="inline-flex items-center text-xs sm:text-sm font-bold text-teal-800 hover:text-teal-600 transition px-3.5 py-2 rounded-xl bg-white border border-teal-200 shadow-xs cursor-pointer"
         >
           ← Return to Guest Website
         </button>
       </div>
 
-      {/* Login Card */}
-      <div className="w-full max-w-md bg-[#1c1917] border border-stone-800 rounded-3xl p-6 sm:p-9 shadow-2xl relative z-10 text-center">
+      {/* Login Card: Pure White on Light Teal */}
+      <div className="w-full max-w-md bg-white border-2 border-teal-200 rounded-3xl p-6 sm:p-9 shadow-2xl relative z-10 text-center">
         {/* Real Hilltop Photo */}
         <div className="flex justify-center mb-5">
           <img
-            src="/images/perrys-view.jpg"
+            src="/images/gallery-new-01.jpg"
             alt="Perrys Grillz Hilltop"
-            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-amber-500 shadow-md"
+            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-teal-500 shadow-md"
           />
         </div>
 
         {/* Brand Header */}
         <div className="mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold font-serif tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl font-bold font-serif tracking-tight text-ocean-dark">
             {BUSINESS_INFO.name}
           </h1>
-          <p className="text-xs sm:text-sm text-stone-400 mt-1.5 font-medium">
+          <p className="text-xs sm:text-sm text-teal-800 mt-1.5 font-medium">
             Executive Portal & Table Reservations
           </p>
-          <div className="inline-block mt-3 px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider text-amber-400 bg-amber-950/40 border border-amber-500/30">
+          <div className="inline-block mt-3 px-3.5 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider text-teal-800 bg-teal-50 border border-teal-200">
             Staff & Concierge Suite
           </div>
         </div>
 
         {/* CREDENTIAL DISPLAY BANNER - 1-CLICK AUTOFILL & COPY */}
-        <div className="mb-6 p-4 rounded-2xl bg-stone-900 border border-stone-800 shadow-xs text-left">
-          <div className="flex items-center justify-between text-xs text-stone-400 mb-2 font-medium">
-            <span className="text-amber-400 font-bold uppercase tracking-wider text-[11px]">
+        <div className="mb-6 p-4 rounded-2xl bg-teal-50/70 border border-teal-200 shadow-xs text-left">
+          <div className="flex items-center justify-between text-xs text-teal-800 mb-2 font-medium">
+            <span className="text-teal-700 font-bold uppercase tracking-wider font-mono text-[11px]">
               Admin Access Key
             </span>
-            <span className="text-[10px] uppercase tracking-wider text-amber-300 bg-amber-950/60 px-2.5 py-0.5 rounded-full font-semibold border border-amber-500/30">
+            <span className="text-[10px] uppercase tracking-wider text-teal-800 bg-white px-2.5 py-0.5 rounded-full font-mono font-bold border border-teal-200">
               Demo Access
             </span>
           </div>
 
-          <div className="flex items-center justify-between bg-black/40 border border-stone-800 rounded-xl px-3 py-2">
-            <code className="font-mono text-sm font-bold text-amber-400 tracking-wider">
+          <div className="flex items-center justify-between bg-white border border-teal-200 rounded-xl px-3.5 py-2.5 shadow-xs">
+            <code className="font-mono text-sm font-bold text-teal-700 tracking-wider">
               {DEFAULT_KEY}
             </code>
             <div className="flex items-center space-x-2">
               <button
                 type="button"
                 onClick={handleAutofill}
-                className="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold transition active:scale-95 cursor-pointer"
+                className="px-3 py-1 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition active:scale-95 cursor-pointer"
                 title="Autofill Password"
               >
                 Autofill
@@ -113,14 +113,14 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
               <button
                 type="button"
                 onClick={handleCopy}
-                className="px-2.5 py-1 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-xs font-medium transition active:scale-95 cursor-pointer"
+                className="px-3 py-1 rounded-lg bg-teal-100 hover:bg-teal-200 text-teal-900 text-xs font-bold transition active:scale-95 cursor-pointer"
                 title="Copy Password"
               >
                 {copied ? 'Copied!' : 'Copy'}
               </button>
             </div>
           </div>
-          <p className="text-[11px] text-stone-400 mt-2">
+          <p className="text-[11px] text-teal-700 mt-2 font-mono">
             Click Autofill to log in instantly without typing.
           </p>
         </div>
@@ -128,13 +128,13 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
         {/* Login Form */}
         <form onSubmit={handleSubmit} className="space-y-4 text-left">
           {error && (
-            <div className="p-3 rounded-xl bg-red-950/80 border border-red-800 text-red-200 text-xs">
+            <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
               {error}
             </div>
           )}
 
           <div>
-            <label className="block text-xs uppercase tracking-wider font-semibold text-stone-300 mb-1.5">
+            <label className="block text-xs uppercase tracking-wider font-mono font-bold text-teal-900 mb-1.5">
               Password or Access Key
             </label>
             <div className="relative">
@@ -143,12 +143,12 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter admin password..."
-                className="w-full rounded-xl border border-stone-800 bg-stone-900 px-3.5 py-2.5 text-sm text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 pr-10"
+                className="w-full rounded-xl border-2 border-teal-100 bg-teal-50/40 px-3.5 py-2.5 text-sm text-ocean-dark placeholder-teal-800/40 focus:outline-none focus:ring-2 focus:ring-teal-500 pr-10"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(prev => !prev)}
-                className="absolute right-3 top-2.5 text-stone-400 hover:text-stone-200 text-xs"
+                className="absolute right-3 top-2.5 text-teal-700 hover:text-teal-900 text-xs font-bold"
               >
                 {showPassword ? 'Hide' : 'Show'}
               </button>
@@ -158,13 +158,13 @@ export default function AdminLogin({ onLoginSuccess, onBackToSite }) {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-widest transition shadow-md active:scale-95 disabled:opacity-50 cursor-pointer"
+            className="w-full py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase tracking-widest transition shadow-md active:scale-95 disabled:opacity-50 cursor-pointer"
           >
             {isLoading ? 'Verifying Access...' : 'Sign In to Management Portal'}
           </button>
         </form>
 
-        <p className="text-[11px] text-stone-500 mt-6">
+        <p className="text-[11px] text-teal-600 font-mono mt-6">
           Perry's Grillz • Les Canelles, Mahé, Seychelles
         </p>
       </div>
